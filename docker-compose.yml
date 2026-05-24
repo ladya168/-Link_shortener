@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    hostname: db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/18/main
+
+  project:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
