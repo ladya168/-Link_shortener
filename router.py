@@ -1,21 +1,21 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import RedirectResponse
-
 from DB_requests import get_slug_from_long_url, add_long_url, add_special_url, get_long_url_to_slug
+from models import MappedBase, LongUrl
 from service import validate_url
 
 router = APIRouter()
 
 
 @router.post("/")
-async def add_slug(long_url: str):
-    if validate_url(long_url):
-        result = await get_slug_from_long_url(long_url)
+async def add_slug(data: LongUrl):
+    if validate_url(data.long_url):
+        result = await get_slug_from_long_url(data.long_url)
         if not result:
             slug = await get_slug_from_long_url(result)
             if not slug:
                 raise HTTPException(status_code=404, detail="slug not found")
-            await add_long_url(slug, long_url)
+            await add_long_url(slug, data.long_url)
             result = slug
     else:
         result = "Incorrect link"
@@ -31,9 +31,10 @@ async def redirect_to_url(slug: str):
         raise HTTPException(status_code=404, detail="slug not found")
 
 @router.post("/special")
-async def add_special_slug(long_url: str, special_slug: str):
-    if validate_url(long_url):
-        result = await add_special_url(long_url, special_slug)
+async def add_special_slug(data: MappedBase):
+    print(1)
+    if validate_url(data.long_url):
+        result = await add_special_url(data.long_url, data.slug)
         return {"Status": "Ok", "Body": f"http://127.0.0.1:8000/{result}"}
     else:
         result = "Incorrect link"

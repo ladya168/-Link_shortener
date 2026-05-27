@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔗 ShortLink — Сокращение ссылок</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="logo">
+        <i class="fas fa-link"></i>
+        <span>ShortLink</span>
+      </div>
+      <p>Превращайте длинные ссылки в короткие, красивые и запоминающиеся за секунды</p>
+    </header>
+
+
+    <main class="card">
+      <form id="shortenForm">
+
+        <div class="input-group">
+          <label for="longUrl">
+            <i class="fas fa-globe"></i> Длинная ссылка
+          </label>
+          <input
+            type="url"
+            id="longUrl"
+            placeholder="https://example.com/very/long/url/here"
+            required
+            autocomplete="url"
+          />
+        </div>
+
+
+        <label class="toggle-switch">
+          <input type="checkbox" id="useCustomSlug" />
+          <span>✨ Использовать свой короткий адрес</span>
+        </label>
+
+
+        <div id="customSlugContainer">
+          <div class="input-group">
+            <label for="customSlug">
+              <i class="fas fa-tag"></i> Ваш короткий адрес
+            </label>
+            <input
+              type="text"
+              id="customSlug"
+              placeholder="my-link"
+              pattern="[a-zA-Z0-9\-_]+"
+              title="Только буквы, цифры, дефис и подчёркивание"
+              maxlength="50"
+            />
+            <small class="input-hint">
+              <i class="fas fa-info-circle"></i>
+              Доступно: латиница, цифры, <code>-</code>, <code>_</code>
+              (например: <code>google</code>, <code>my-site_2024</code>)
+            </small>
+          </div>
+        </div>
+
+
+        <button type="submit" class="btn" id="submitBtn">
+          <span>Сократить ссылку</span>
+          <div class="spinner"></div>
+        </button>
+      </form>
+
+
+      <div class="error-box" id="errorMessage">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span id="errorText">Произошла ошибка.</span>
+      </div>
+
+
+      <div class="result-section" id="result">
+        <div class="result-label">
+          <i class="fas fa-check-circle"></i> Готово! Ваша короткая ссылка:
+        </div>
+        <div class="result-box">
+          <input type="text" id="shortUrl" readonly />
+          <button class="copy-btn" id="copyBtn">
+            <i class="fas fa-copy"></i>
+            <span>Копировать</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+
+    <section class="stats">
+      <div class="stat-card">
+        <div class="stat-value">10K+</div>
+        <div class="stat-label">Ссылок сокращено</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">99.9%</div>
+        <div class="stat-label">Время работы</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">&lt;1s</div>
+        <div class="stat-label">Среднее время</div>
+      </div>
+    </section>
+
+
+    <footer>
+      <p>© 2024 ShortLink.
+      <a href="welcome.html">На главную</a> |
+       <code>ЫЫЫЫЫЫЫЫ</code> <code>Максим Легенда</code></p>
+    </footer>
+  </div>
+
+
+  <div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage">Готово!</span>
+  </div>
+
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
