@@ -75,7 +75,7 @@ header {
   line-height: 1.1;
 
   /* 🔥 ГРАДИЕНТНЫЙ ТЕКСТ (исправлено) */
-  background: #22749d;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -224,7 +224,9 @@ header p {
   border: 1px solid #e2e8f0;
 }
 
-
+/* =========================================
+   6. BUTTONS
+   ========================================= */
 .btn {
   width: 100%;
   padding: 16px 20px;
@@ -284,7 +286,9 @@ header p {
   opacity: 0.8;
 }
 
-
+/* =========================================
+   7. RESULT & ERROR
+   ========================================= */
 .result-section {
   margin-top: 28px;
   padding-top: 24px;
@@ -379,7 +383,9 @@ header p {
   color: var(--error);
 }
 
-
+/* =========================================
+   8. STATS CARDS
+   ========================================= */
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -412,8 +418,8 @@ header p {
   line-height: 1.2;
   display: block;
 
-
-  background: #1e8dc5;
+  /* 🔥 ГРАДИЕНТНЫЙ ТЕКСТ (исправлено) */
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
