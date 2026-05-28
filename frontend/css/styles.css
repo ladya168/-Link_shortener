@@ -160,7 +160,7 @@ header p {
   font-size: 1rem;
   font-weight: 500;
   background: var(--light);
-  color: var(--dark);
+  color: #1cc3ec;
   transition: var(--transition);
 }
 
@@ -224,9 +224,7 @@ header p {
   border: 1px solid #e2e8f0;
 }
 
-/* =========================================
-   6. BUTTONS
-   ========================================= */
+
 .btn {
   width: 100%;
   padding: 16px 20px;
@@ -286,9 +284,7 @@ header p {
   opacity: 0.8;
 }
 
-/* =========================================
-   7. RESULT & ERROR
-   ========================================= */
+
 .result-section {
   margin-top: 28px;
   padding-top: 24px;
@@ -383,9 +379,7 @@ header p {
   color: var(--error);
 }
 
-/* =========================================
-   8. STATS CARDS
-   ========================================= */
+
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -418,7 +412,7 @@ header p {
   line-height: 1.2;
   display: block;
 
-  /* 🔥 ГРАДИЕНТНЫЙ ТЕКСТ (исправлено) */
+
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -442,9 +436,7 @@ header p {
   }
 }
 
-/* =========================================
-   9. FOOTER
-   ========================================= */
+
 footer {
   text-align: center;
   padding: 24px 16px 40px;
@@ -477,9 +469,7 @@ footer code {
   border: 1px solid #e2e8f0;
 }
 
-/* =========================================
-   10. TOAST NOTIFICATION
-   ========================================= */
+
 .toast {
   position: fixed;
   bottom: 24px;
@@ -506,9 +496,7 @@ footer code {
 .toast.success { background: var(--success); }
 .toast.error { background: var(--error); }
 
-/* =========================================
-   11. ANIMATIONS
-   ========================================= */
+
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -544,9 +532,7 @@ footer code {
   display: none;
 }
 
-/* =========================================
-   12. RESPONSIVE DESIGN
-   ========================================= */
+
 @media (max-width: 768px) {
   header { padding: 28px 12px 18px; }
   .logo { font-size: 1.9rem; gap: 10px; }
@@ -559,7 +545,6 @@ footer code {
   .result-box { flex-direction: column; }
   .copy-btn { width: 100%; justify-content: center; }
 
-  /* Стат-карты в одну колонку */
   .stats {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -580,9 +565,7 @@ footer code {
   .toast { right: 12px; left: 12px; justify-content: center; }
 }
 
-/* =========================================
-   13. DARK MODE SUPPORT
-   ========================================= */
+
 @media (prefers-color-scheme: dark) {
   :root {
     --dark: #f1f5f9;
@@ -614,9 +597,7 @@ footer code {
   footer code { background: #334155; border-color: #475569; }
 }
 
-/* =========================================
-   14. ACCESSIBILITY & PRINT
-   ========================================= */
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -35,7 +35,10 @@ async def add_special_slug(data: MappedBase):
     print(1)
     if validate_url(data.long_url):
         result = await add_special_url(data.long_url, data.slug)
-        return {"Status": "Ok", "Body": f"http://127.0.0.1:8000/{result}"}
+        if result:
+            return {"Status": "Ok", "Body": f"http://127.0.0.1:8000/{result}"}
+        else:
+            return {"Status": "Ok", "Body": "This link is already taken"}
     else:
         result = "Incorrect link"
         return {"Status": "nonOk", "Body": result}
