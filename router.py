@@ -6,6 +6,7 @@ from service import validate_url
 
 router = APIRouter()
 
+HOST = "http://135.106.129.89"
 
 @router.post("/")
 async def add_slug(data: LongUrl):
@@ -20,7 +21,7 @@ async def add_slug(data: LongUrl):
     else:
         result = "Incorrect link"
 
-    return {"Status": "Ok", "Body": f"http://127.0.0.1:8000/{str(result)}"}
+    return {"Status": "Ok", "Body": f"{HOST}:8000/{str(result)}"}
 
 @router.get("/{slug}")
 async def redirect_to_url(slug: str):
@@ -36,7 +37,7 @@ async def add_special_slug(data: MappedBase):
     if validate_url(data.long_url):
         result = await add_special_url(data.long_url, data.slug)
         if result:
-            return {"Status": "Ok", "Body": f"http://127.0.0.1:8000/{result}"}
+            return {"Status": "Ok", "Body": f"{HOST}:8000/{result}"}
         else:
             return {"Status": "Ok", "Body": "This link is already taken"}
     else:
