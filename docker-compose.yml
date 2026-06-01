@@ -41,6 +41,7 @@ services:
     image: dockerhub.timeweb.cloud/library/nginx:alpine
     ports:
       - "80:80"
+    restart: always
     networks:
       - project
     volumes:

@@ -31,7 +31,7 @@ function bindWelcomeEvents() {
   const startBtn = document.getElementById('startBtn');
   startBtn?.addEventListener('click', (e) => {
     e.preventDefault();
-    navigateSmooth('index');
+    navigateSmooth('main');
   });
 
   // Кнопка "Узнать больше"
@@ -39,6 +39,7 @@ function bindWelcomeEvents() {
   learnBtn?.addEventListener('click', (e) => {
     e.preventDefault();
     scrollToFeatures();
+    navigateSmooth('a');
   });
 
   // Плавный скролл по якорям
