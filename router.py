@@ -6,7 +6,7 @@ from service import validate_url
 
 router = APIRouter()
 
-HOST = "http://135.106.129.89"
+HOST = "http://79.141.79.221"
 
 @router.post("/")
 async def add_slug(data: LongUrl):

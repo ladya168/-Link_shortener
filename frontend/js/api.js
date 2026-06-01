@@ -4,7 +4,7 @@
  * Конфигурация API
  */
 export const API_CONFIG = {
-  BASE_URL: 'http://135.106.129.89:8000',
+  BASE_URL: 'http://79.141.79.221:8000',
   TIMEOUT: 10000, // 10 секунд
 };
 
