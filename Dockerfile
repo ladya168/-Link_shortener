@@ -1,14 +1,22 @@
-FROM python:3.14.4
+FROM cr.yandex/mirror/library/python:3.13-slim
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
+COPY --from=ghcr.io/astral-sh/uv:latest /uvx /bin/
+
+
+
+ENV UV_SYSTEM_PYTHON=1
+
+WORKDIR /app
+
 
 COPY pyproject.toml uv.lock ./
 
-ENV PATH="/app/.venv/bin:$PATH"
+RUN uv sync --frozen --no-cache
+#RUN uv pip install --no-cache -r pyproject.toml
 
-RUN pip install uv
-RUN uv sync --frozen --no-install-project --no-dev
 
 COPY . .
 
-RUN uv pip install --system .
 
-CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
